@@ -1,0 +1,30 @@
+create database platzi;
+use platzi;
+create table profesor(
+ID_profesor int primary key auto_increment,
+nombre varchar(250),
+avatar varchar(250)
+);
+
+create table curso(
+ID_curso int primary key auto_increment,
+ID_profesor int, 
+nombre varchar (250), 
+tema text , 
+proyecto varchar(250),
+foreign key (ID_profesor) references profesor(ID_profesor)
+);
+
+create table redSocial(
+ID_red int primary key auto_increment,
+nombre varchar(250),
+icono varchar(250)
+);
+create table profesor_red(
+ID_profesor_red int primary key,
+ID_profesor int,
+ID_red int,
+nickname varchar(250),
+foreign key (ID_profesor) references profesor(ID_profesor),
+foreign key (ID_red) references redSocial(ID_red)
+);
