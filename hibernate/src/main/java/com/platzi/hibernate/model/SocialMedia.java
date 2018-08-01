@@ -2,13 +2,31 @@ package com.platzi.hibernate.model;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+
+
+@Entity
+@Table(name="redsocial")
 public class SocialMedia implements Serializable {
 	
+	@Id
+	@Column(name="ID_red")
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long idSocialMedia;
+	
+	@Column(name="nombre")
 	private String name;
+	
+	@Column(name="icono")
 	private String icon;
 	
-	
+
 	public SocialMedia(String name, String icon) {
 		super();
 		this.name = name;
