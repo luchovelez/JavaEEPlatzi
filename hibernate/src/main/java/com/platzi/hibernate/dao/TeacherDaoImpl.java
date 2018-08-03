@@ -2,6 +2,9 @@ package com.platzi.hibernate.dao;
 
 import java.util.List;
 
+import org.hibernate.Query;
+import org.hibernate.Session;
+
 import com.platzi.hibernate.model.Teacher;
 
 public class TeacherDaoImpl extends PlatziSession implements TeacherDao{
@@ -31,23 +34,43 @@ public class TeacherDaoImpl extends PlatziSession implements TeacherDao{
 	}
 
 	public void deleteTeacherById(Long idteacher) {
-		// TODO Auto-generated method stub
+		Session session ;
+	    Teacher teacher ;
+
+	    session = platzisession.getSession();
+	    teacher = (Teacher)session.load(Teacher.class,idteacher);
+	    session.delete(teacher);
+
+	    //Esto hace que el delete pendiente se realice 
+	    session.flush() ;
+		
 		
 	}
 
 	public void updateTeacher(Teacher teacher) {
-		// TODO Auto-generated method stub
+		platzisession.getSession().merge(teacher);
+		platzisession.getSession().update(teacher);
+		platzisession.getSession().getTransaction().commit();
 		
 	}
 
 	public Teacher findById(Long idTeacher) {
 		// TODO Auto-generated method stub
-		return null;
+		return platzisession.getSession().load(Teacher.class, idTeacher);
 	}
 
 	public Teacher findByName(String name) {
 		// TODO Auto-generated method stub
-		return null;
+		return platzisession.getSession().load(Teacher.class, name);
 	}
+
+	public void deleteTeacher(Teacher teacher) {
+		platzisession.getSession().delete(teacher);
+		platzisession.getSession().getTransaction().commit();
+		
+		
+	}
+
+	
 
 }

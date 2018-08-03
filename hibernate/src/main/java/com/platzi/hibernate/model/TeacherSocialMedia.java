@@ -18,7 +18,7 @@ import javax.persistence.Table;
 public class TeacherSocialMedia implements Serializable {
 	
 	@Id
-	@Column(name="ID_red")
+	@Column(name="ID_profesor_red")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long idSocialMedia;
 	
@@ -30,6 +30,7 @@ public class TeacherSocialMedia implements Serializable {
 	private Teacher teacher;
 	
 	@ManyToOne(fetch=FetchType.EAGER)
+	@JoinColumn(name="ID_red")
 	private SocialMedia socialMedia;
 	
 	

@@ -11,6 +11,7 @@ public interface TeacherDao {
 	List<Teacher>findAllTeachers();
 	
 	void deleteTeacherById(Long idteacher);
+	void deleteTeacher(Teacher teacher);
 	
 	void updateTeacher(Teacher teacher);
 	
