@@ -35,8 +35,7 @@ public class Course implements Serializable {
 	@JoinColumn(name="ID_profesor")
 	private Teacher teacher;
 	
-	@Column(name="nickname")
-	private String nickname;
+
 	
 	
 	
@@ -46,13 +45,13 @@ public class Course implements Serializable {
 	}
 	
 	
-	public Course(String name, String themes, String proyect, Teacher teacher, String nickname) {
+	public Course(String name, String themes, String proyect, Teacher teacher) {
 		super();
 		this.name = name;
 		this.themes = themes;
 		this.proyect = proyect;
 		this.teacher = teacher;
-		this.nickname = nickname;
+		
 	}
 
 
@@ -88,14 +87,7 @@ public class Course implements Serializable {
 	}
 
 
-	public String getNickname() {
-		return nickname;
-	}
 
-
-	public void setNickname(String nickname) {
-		this.nickname = nickname;
-	}
 	
 
 }

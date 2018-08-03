@@ -23,9 +23,12 @@ public class App
     	Session session = sessionFactory.openSession();
     	
     	Teacher teacher = new Teacher("Luis Velez", "avatar");
+    	Teacher teacher2 = new Teacher("Marco Velez", "avatar");
     	session.beginTransaction();
     	session.save(teacher);
+    	session.save(teacher2);
     	session.getTransaction().commit();
+    	session.close();
         
     }
 }
