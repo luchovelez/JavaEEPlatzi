@@ -25,7 +25,7 @@ public class Course implements Serializable {
 	@Column(name="nombre")
 	private String name;
 	
-	@Column(name="temas")
+	@Column(name="tema")
 	private String themes;
 	
 	@Column(name="proyecto")
@@ -45,12 +45,12 @@ public class Course implements Serializable {
 	}
 	
 	
-	public Course(String name, String themes, String proyect, Teacher teacher) {
+	public Course(String name, String themes, String proyect) {
 		super();
 		this.name = name;
 		this.themes = themes;
 		this.proyect = proyect;
-		this.teacher = teacher;
+		
 		
 	}
 

@@ -30,7 +30,6 @@ public class TeacherSocialMedia implements Serializable {
 	private Teacher teacher;
 	
 	@ManyToOne(fetch=FetchType.EAGER)
-	//@JoinColumn(name="ID_red")
 	private SocialMedia socialMedia;
 	
 	
