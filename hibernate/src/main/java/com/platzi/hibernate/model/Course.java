@@ -4,9 +4,12 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -21,13 +24,19 @@ public class Course implements Serializable {
 	
 	@Column(name="nombre")
 	private String name;
+	
 	@Column(name="temas")
 	private String themes;
+	
 	@Column(name="proyecto")
 	private String proyect;
-	@Column(name="ID_profesor")
+	
+	@ManyToOne(optional=true,fetch=FetchType.EAGER)
+	@JoinColumn(name="ID_profesor")
 	private Teacher teacher;
 	
+	@Column(name="nickname")
+	private String nickname;
 	
 	
 	
@@ -37,12 +46,13 @@ public class Course implements Serializable {
 	}
 	
 	
-	public Course(String name, String themes, String proyect, Teacher teacher) {
+	public Course(String name, String themes, String proyect, Teacher teacher, String nickname) {
 		super();
 		this.name = name;
 		this.themes = themes;
 		this.proyect = proyect;
 		this.teacher = teacher;
+		this.nickname = nickname;
 	}
 
 
@@ -75,6 +85,16 @@ public class Course implements Serializable {
 	}
 	public void setTeacher(Teacher teacher) {
 		this.teacher = teacher;
+	}
+
+
+	public String getNickname() {
+		return nickname;
+	}
+
+
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
 	}
 	
 

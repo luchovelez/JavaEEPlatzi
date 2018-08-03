@@ -3,11 +3,14 @@ package com.platzi.hibernate.model;
 import java.io.Serializable;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
@@ -31,8 +34,11 @@ public class Teacher implements Serializable {
 	
 
 	
-	
+	@OneToMany(mappedBy="Teacher")
 	private Set<Course> courses;
+	
+	@OneToMany(cascade=CascadeType.ALL)
+	@JoinColumn(name="ID_profesor")
 	private Set<TeacherSocialMedia> teacherSocialMedia; 
 	
 	

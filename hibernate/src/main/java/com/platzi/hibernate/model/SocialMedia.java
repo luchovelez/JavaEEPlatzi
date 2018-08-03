@@ -1,12 +1,15 @@
 package com.platzi.hibernate.model;
 
 import java.io.Serializable;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
@@ -25,6 +28,10 @@ public class SocialMedia implements Serializable {
 	
 	@Column(name="icono")
 	private String icon;
+	
+	@OneToMany
+	@JoinColumn(name="ID_red")
+	private Set<TeacherSocialMedia> teacherSocialMedias;
 	
 
 	public SocialMedia(String name, String icon) {
@@ -74,6 +81,18 @@ public class SocialMedia implements Serializable {
 	public SocialMedia() {
 		super();
 		// TODO Auto-generated constructor stub
+	}
+
+
+
+	public Set<TeacherSocialMedia> getTeacherSocialMedias() {
+		return teacherSocialMedias;
+	}
+
+
+
+	public void setTeacherSocialMedias(Set<TeacherSocialMedia> teacherSocialMedias) {
+		this.teacherSocialMedias = teacherSocialMedias;
 	}
 	
 	
