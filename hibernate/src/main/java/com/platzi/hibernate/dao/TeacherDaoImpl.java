@@ -8,6 +8,7 @@ public class TeacherDaoImpl extends PlatziSession implements TeacherDao{
 	
 	
 	private PlatziSession platzisession;
+	
 
 	public TeacherDaoImpl() {
 		
@@ -23,9 +24,10 @@ public class TeacherDaoImpl extends PlatziSession implements TeacherDao{
 		
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<Teacher> findAllTeachers() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return platzisession.getSession().createQuery("from Teacher").getResultList();
 	}
 
 	public void deleteTeacherById(Long idteacher) {

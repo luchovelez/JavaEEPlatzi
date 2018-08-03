@@ -14,7 +14,7 @@ public class PlatziSession {
 		Configuration configuration = new Configuration();
 		configuration.configure();
 		SessionFactory sessionFactory = configuration.buildSessionFactory();
-		Session session = sessionFactory.openSession();
+		session = sessionFactory.openSession();
 		session.beginTransaction();
 	}
 

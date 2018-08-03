@@ -18,6 +18,8 @@ public class App
     	
     	TeacherDaoImpl teacherDaoImpl = new TeacherDaoImpl();
     	
+    	//System.out.println(teacher.getName()+" "+teacher.getAvatar());
+    	
     	teacherDaoImpl.saveTeacher(teacher);
     	
  
