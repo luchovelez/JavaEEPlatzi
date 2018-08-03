@@ -1,10 +1,6 @@
 package com.platzi.hibernate;
 
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
-
-import com.platzi.hibernate.model.Course;
+import com.platzi.hibernate.dao.TeacherDaoImpl;
 import com.platzi.hibernate.model.Teacher;
 
 /**
@@ -17,20 +13,15 @@ public class App
     {
     	
     	System.out.println( "Hello World!" );
-    	SessionFactory sessionFactory;
-    	Configuration configuration = new Configuration();
-    	configuration.configure();
-    	sessionFactory = configuration.buildSessionFactory();
-    	Session session = sessionFactory.openSession();
     	
-    	Course course= new Course ("Curso java", "introduccion Hibernate", "Proyecto Final") ; 
+    	
+    	Teacher teacher = new Teacher("Luis Velez", "avatar");
+    	TeacherDaoImpl teacherDaoImpl = new TeacherDaoImpl();
+    	teacherDaoImpl.saveTeacher(teacher);
+    	
+    	//Course course= new Course ("Curso java", "introduccion Hibernate", "Proyecto Final") ; 
     	//Teacher teacher = new Teacher("Luis Velez", "avatar");
     	//Teacher teacher2 = new Teacher("Marco Velez", "avatar");
-    	session.beginTransaction();
-    	//session.save(teacher);
-    	session.save(course);
-    	session.getTransaction().commit();
-    	session.close();
-        
+    
     }
 }
