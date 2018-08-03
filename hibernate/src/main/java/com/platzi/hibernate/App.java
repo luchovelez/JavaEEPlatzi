@@ -14,14 +14,12 @@ public class App
     	
     	System.out.println( "Hello World!" );
     	
-    	
     	Teacher teacher = new Teacher("Luis Velez", "avatar");
+    	
     	TeacherDaoImpl teacherDaoImpl = new TeacherDaoImpl();
+    	
     	teacherDaoImpl.saveTeacher(teacher);
     	
-    	//Course course= new Course ("Curso java", "introduccion Hibernate", "Proyecto Final") ; 
-    	//Teacher teacher = new Teacher("Luis Velez", "avatar");
-    	//Teacher teacher2 = new Teacher("Marco Velez", "avatar");
-    
+ 
     }
 }

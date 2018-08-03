@@ -11,11 +11,11 @@ public class PlatziSession {
 	public PlatziSession() {
 		
 		
-    	Configuration configuration = new Configuration();
-    	configuration.configure();
-    	SessionFactory sessionFactory = configuration.buildSessionFactory();
-    	session = sessionFactory.openSession();
-    	session.beginTransaction();
+		Configuration configuration = new Configuration();
+		configuration.configure();
+		SessionFactory sessionFactory = configuration.buildSessionFactory();
+		Session session = sessionFactory.openSession();
+		session.beginTransaction();
 	}
 
 	public Session getSession(){

@@ -10,13 +10,14 @@ public class TeacherDaoImpl extends PlatziSession implements TeacherDao{
 	private PlatziSession platzisession;
 
 	public TeacherDaoImpl() {
-		super();
-		// TODO Auto-generated constructor stub
+		
+		platzisession=new PlatziSession();
+		
 	}
 
 	public void saveTeacher(Teacher teacher) {
 		
-		platzisession.getSession().persist(teacher);
+		platzisession.getSession().save(teacher);
 		platzisession.getSession().getTransaction().commit();
 		
 		
