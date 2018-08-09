@@ -25,8 +25,8 @@ public class App
     	//System.out.println(teacher.getName()+" "+teacher.getAvatar());
     	
     	//teacherDaoImpl.saveTeacher(teacher);
-    	teacher.setName("Marco");
-    	teacherDaoImpl.updateTeacher(teacher);
+    	//teacher.setName("Marco Velez");
+    	//teacherDaoImpl.updateTeacher(teacher);
     	
     	//System.out.println(teacher.getName()+" "+teacher.getAvatar());
     	

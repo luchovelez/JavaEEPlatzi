@@ -2,7 +2,7 @@ package com.platzi.hibernate.dao;
 
 import java.util.List;
 
-import org.hibernate.Query;
+
 import org.hibernate.Session;
 
 import com.platzi.hibernate.model.Teacher;
@@ -43,14 +43,19 @@ public class TeacherDaoImpl extends PlatziSession implements TeacherDao{
 
 	    //Esto hace que el delete pendiente se realice 
 	    session.flush() ;
+	    platzisession.getSession().getTransaction().commit();
 		
 		
 	}
 
+
 	public void updateTeacher(Teacher teacher) {
-		platzisession.getSession().merge(teacher);
-		platzisession.getSession().update(teacher);
-		platzisession.getSession().getTransaction().commit();
+		Session session ;
+	  	session = platzisession.getSession();
+	    session.update(teacher);
+	    session.flush();
+	    platzisession.getSession().getTransaction().commit();
+		
 		
 	}
 
